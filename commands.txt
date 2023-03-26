@@ -1,0 +1,54 @@
+wget https://archive.apache.org/dist/kafka/3.3.1/kafka_2.12-3.3.1.tgz
+
+tar -xvf kafka_2.12-3.3.1.tgz
+
+-----------------------------------
+kafka runs on top of JVM
+so we need to install jdk on our ec2 machine i used fileZilla SFTP protocal...sitemanager.
+
+https://download.oracle.com/otn/java/jdk/8u361-b09/0ae14417abb444ebb02b9815e2103550/jdk-8u361-linux-x64.tar.gz
+
+extracted both jdk and kafka
+then set path in /etc/profile 
+	#java varialbles
+	export JAVA_HOME=/home/ec2-user/java
+	export PATH=$PATH:$JAVA_HOME/bin
+java -version
+>java version "1.8.0_361"
+-----------------------------------
+
+cd kafka_2.12-3.3.1
+
+start zookeper -   
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+Start Kafka-server:
+Duplicate the session & enter in a new console --
+export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"
+bin/kafka-server-start.sh config/server.properties
+
+
+It is pointing to a private server; modify server.properties to allow it to run on a public IP address.
+
+To do this --
+Do a "sudo nano config/server.properties" - change ADVERTISED_LISTENERS to public ip of the EC2 instance
+------------------------------------
+Edit inbound rulesInfo
+set all traffic 
+
+Create the topic:
+-----------------------------
+Duplicate the session console --
+
+bin/kafka-topics.sh --create --topic demo_test --bootstrap-server {Put the Public IP of your EC2 Instance:9092} --replication-factor 1 --partitions 1
+
+Start Producer:
+----------------------------
+bin/kafka-console-producer.sh --topic demo_test --bootstrap-server {Put the Public IP of your EC2 Instance:9092} 
+
+Start Consumer:
+----------------------------
+Duplicate the session --
+bin/kafka-console-consumer.sh --topic demo_test --bootstrap-server {Put the Public IP of your EC2 Instance:9092}
+
+
