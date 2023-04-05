@@ -25,11 +25,11 @@ The project is implemented using the following technologies:
 
 ## Dataset
 
-To keep things realistic, I have used a stock market dataset as the source of data for this project. However, any dataset can be used as input to the pipeline. The dataset used in this project can be found in the [data](https://chat.openai.com/data) directory.
+To keep things realistic, I have used a stock market dataset as the source of data for this project. However, any dataset can be used as input to the pipeline. The dataset used in this project can be found in above directory.
 
 ## Code
 
-The code for this project is provided in the [code](https://chat.openai.com/code) directory. The code is organized into different modules that perform specific tasks such as data ingestion, data transformation, and data visualization.
+The code for this project is provided in the ipynb files. The code is organized into different modules that perform specific tasks such as data ingestion, data transformation, and data visualization.
 
 ## Case Study
 
@@ -37,6 +37,6 @@ If you are interested in learning how Spotify utilizes Apache Kafka for real-tim
 
 ## Project Walkthrough
 
-Finally, I have created a video walkthrough of the project, which you can find [here](https://www.youtube.com/watch?v=XXXXXXXXXXX). This walkthrough will take you through the different components of the pipeline and provide an overview of how they work together.
+Finally, I have created a video walkthrough of the project, which you can find [here](https://youtu.be/wOfT72fvNWw). This walkthrough will take you through the different components of the pipeline and provide an overview of how they work together.
 
 Thank you for your interest in the "Stocks in Motion" project! If you have any questions or comments, please feel free to reach out to me.
